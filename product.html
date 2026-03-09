@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Our Products - Browse quality products">
+    <title>Products - Simple Website</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+        <div class="container header-content">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-palette"></i></span>
+<span class="logo-text">Jenish<span class="logo-accent"> Art</span></span>
+            </a>
+
+            <!-- Navigation -->
+            <nav class="nav-menu">
+    <a href="index.html" class="nav-link">
+        <i class="fas fa-home"></i> Home
+    </a>
+
+    <a href="product.html" class="nav-link active">
+        <i class="fas fa-box"></i> Products
+    </a>
+
+    <a href="about.html" class="nav-link">
+        <i class="fas fa-info-circle"></i> About
+    </a>
+
+    <a href="contact.html" class="nav-link">
+        <i class="fas fa-envelope"></i> Contact
+    </a>
+</nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="product.html" class="nav-link active">Products</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- ==================== PAGE HEADER ==================== -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>Browse our selection of quality products</p>
+        </div>
+    </section>
+
+    <!-- ==================== PRODUCT LISTING ==================== -->
+    <section class="products-listing" id="products-listing">
+        <div class="container">
+            <!-- Filter Buttons -->
+            <div class="filter-section">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterProducts('all')">
+                        <i class="fas fa-th"></i> All
+                    </button>
+                    <button class="filter-btn" onclick="filterProducts('Resin Art')">
+                        <i class="fas fa-paint-brush"></i> Resin Art
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+<div class="products-grid" id="products-grid">
+
+<div class="product-card">
+<img src="images/product1.jpg" alt="Resin Art">
+<h3>Resin Art Frame</h3>
+<p>Beautiful handmade resin art frame.</p>
+<button class="btn-buy">Buy Now</button>
+</div>
+
+<div class="product-card">
+<img src="images/product2.jpg" alt="Resin Art">
+<h3>Resin Keychain</h3>
+<p>Custom resin keychain.</p>
+<button class="btn-buy">Buy Now</button>
+</div>
+
+<div class="product-card">
+<img src="images/product3.jpg" alt="Resin Art">
+<h3>Resin Name Plate</h3>
+<p>Personalized resin name plate.</p>
+<button class="btn-buy">Buy Now</button>
+</div>
+
+<div class="product-card">
+<img src="images/product4.jpg" alt="Resin Art">
+<h3>Resin Wall Decor</h3>
+<p>Modern resin wall decoration.</p>
+<button class="btn-buy">Buy Now</button>
+</div>
+
+</div>
+
+</div>
+</section>
+                <!-- Product cards will be rendered by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRODUCT DETAIL ==================== -->
+    <section class="product-detail-section" id="product-detail" style="display: none;">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="product.html">Products</a>
+                <i class="fas fa-chevron-right"></i>
+                <span id="breadcrumb-product">Product Details</span>
+            </div>
+
+            <div class="product-detail-grid">
+                <!-- Product Image -->
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img id="main-product-image" src="" alt="Product Image">
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-detail-info">
+                    <span class="product-category" id="product-category"></span>
+                    <h1 id="product-name"></h1>
+                    <div class="product-detail-price" id="product-price"></div>
+                    <p class="product-detail-description" id="product-description"></p>
+                    
+                    <!-- Quantity Selector -->
+                    <div class="quantity-selector">
+                        <label>Quantity:</label>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                            <span class="quantity-value" id="quantity">1</span>
+                            <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-lg" onclick="addToCart()">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-outline btn-lg" onclick="showProducts()">
+                            <i class="fas fa-arrow-left"></i> Back to Products
+                        </button>
+                    </div>
+
+                    <!-- Product Meta -->
+                    <div class="product-meta">
+                        <div class="product-meta-item">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Free shipping on orders over $50</span>
+                        </div>
+                        <div class="product-meta-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Quality guaranteed</span>
+                        </div>
+                        <div class="product-meta-item">
+                            <i class="fas fa-undo"></i>
+                            <span>30-day return policy</span>
+                        </div>
+                    </div>
+                </div>                         
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,138.7C672,128,768,128,864,149.3C960,171,1056,213,1152,218.7C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-palette"></i>
+<span>Jenish Art</span>
+                    </div>
+                    <p>Your trusted destination for quality services. We provide exceptional solutions for all your needs.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="product.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+<li><i class="fas fa-envelope"></i> efgh23667@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+<p>&copy; 2024 Jenish Art. ALL rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        // Product Data
+        const products = [
+            {
+                id: 1,
+                name: "Custom Couple Resin Photo Frame",
+                category: "Resin Art",
+                shortDescription: "Handmade personalized resin frame with couple photo and dried flower design",
+                fullDescription: "Beautiful handcrafted resin art frame customized with a couple photo, names, and special date. Designed with elegant dried flowers and a glossy resin finish, making it a perfect keepsake for weddings, anniversaries, engagements, or special gifts. Each piece is uniquely handmade and carefully crafted to preserve your precious memories in a stylish way.",
+price: 1249,
+                originalPrice: 1699,
+                image: "whatsapp1.jpeg",
+                badge: "Best Seller"
+            },
+            {
+                id: 2,
+                name: "Salangpur Hanuman Resin Art Frame", 
+                category: "Religious Resin Art", 
+                shortDescription: "Handcrafted resin frame featuring powerful Salangpur Hanuman design with stone texture border.", 
+                fullDescription: "Beautiful handcrafted resin art frame featuring the divine Salangpur Hanuman image. The frame is designed with a premium glossy resin finish and decorated with black and golden stone texture around the border, giving it a rich and spiritual look. Perfect for home temple, office decoration, or as a devotional gift. Each piece is handmade with care, making every frame unique and special.", 
+                price: 1299, 
+                originalPrice: 1699 ,
+                image: "whatsapp2.jpeg",
+                badge: "New"
+            },
+            {
+                id: 3,
+                name: "Customized Couple Resin Ring Platter",
+                category: "Wedding Resin Art",
+                shortDescription: "Handmade resin ring platter with couple names, date and floral decoration.",
+                fullDescription: "Beautiful handcrafted resin ring platter designed for weddings and engagements. This elegant piece features couple names, special date, golden flakes and dried flower decoration with a premium glossy resin finish. Perfect for ring ceremony, wedding decoration, or as a memorable keepsake gift for couples.",
+price: 1799,
+                originalPrice: 2299,
+                image: "whatsapp3.jpeg",
+                badge: "Sale"
+            },
+            {
+                id: 4,
+             name: "Varmala Preservation Resin Wall Clock",
+category: "Wedding Resin Art",
+shortDescription: "Customized resin wall clock made by preserving wedding varmala flowers.",
+fullDescription: "Unique handcrafted resin wall clock created by preserving real wedding varmala flowers inside premium resin. This beautiful clock includes couple names, wedding date and elegant Roman numbers, making it a timeless memory of your special day. Perfect for bedroom or living room decor and a meaningful keepsake to cherish wedding moments forever.",
+price: 2499,
+originalPrice: 2999,
+image: "hello.jpg",
+                badge: null
+            },
+            {
+                id: 5,
+           name: "Resin Pooja Thali with Diya Holders",
+category: "Religious Resin Art",
+shortDescription: "Elegant handcrafted resin pooja thali with diya holders and golden leaf design.",
+fullDescription: "Beautiful handcrafted resin pooja thali designed for spiritual rituals and home temple use. This premium thali features a glossy white resin base decorated with golden flakes, floral diya holders, pearl accents and sacred Gayatri Mantra engraving in the center. Perfect for daily पूजा, festivals, housewarming gifts or spiritual decoration.",
+price: 1399,
+originalPrice: 1799,
+image: "whatsapp5.jpeg",
+                badge: "Hot"
+            },
+            {
+                id: 6,
+        name: "Customized Floral Resin Couple Frame",
+category: "Wedding Resin Art",
+shortDescription: "Elegant handmade resin frame with dried flowers, couple names and special date.",
+fullDescription: "Beautiful handcrafted resin couple frame designed with a premium golden ring stand and colorful dried flower decoration. This customized piece includes couple names, special date and blessing message, making it a perfect keepsake for weddings, engagements or anniversaries. The glossy resin finish and natural flower design give it a unique and elegant look for home decoration or gifting.",
+price: 1899,
+originalPrice: 2399,
+image: "whatsapp6.jpeg",
+                badge: null
+            },
+            {
+                id: 7,
+                name: "Resin Wall Clock with Marble Design",
+category: "Home Decor Resin Art",
+shortDescription: "Stylish handmade resin wall clock with marble pattern and golden Roman numbers.",
+fullDescription: "Elegant handcrafted resin wall clock designed with a beautiful marble pattern and premium golden Roman numerals. The glossy resin finish and gold crystal accents give it a luxurious look, making it perfect for living room, bedroom, office or modern home decor. This unique handmade clock adds both style and functionality to your space.",
+price: 1999,
+originalPrice: 2599,
+image: "whatsapp7.jpeg",
+                badge: null
+            },
+{
+                id: 8,
+                name: "Ganesha Resin Pooja Thali",
+category: "Religious Resin Art",
+shortDescription: "Beautiful handcrafted resin pooja thali with Lord Ganesha design and diya holders.",
+fullDescription: "Elegant handcrafted resin pooja thali featuring Lord Ganesha artwork, sacred symbols and floral decoration. Designed with a vibrant pink resin base, golden detailing and diya holders, this thali is perfect for daily पूजा, festivals, aarti and home temple decoration. The glossy finish and handmade design make it a unique spiritual decor piece and a thoughtful gift.",
+price: 1499,
+originalPrice: 1999,
+image: "whatsapp8.jpeg",
+                badge: "Popular"
+            }
+        ];
+
+        let currentProduct = null;
+
+        // Render Products
+        function renderProducts(filter = 'all') {
+            const grid = document.getElementById('products-grid');
+            let filteredProducts = filter === 'all' ? products : products.filter(p => p.category === filter);
+            
+            grid.innerHTML = filteredProducts.map(product => {
+                const badge = product.badge ? `<span class="product-badge">${product.badge}</span>` : '';
+const origPrice = product.originalPrice ? `<span class="original-price">₹${product.originalPrice}</span>` : '';
+                
+                return `
+                    <div class="product-card">
+                        <div class="product-image">
+                            ${badge}
+                            <img src="${product.image}" alt="${product.name}" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">${product.category}</span>
+                            <h3 class="product-name">${product.name}</h3>
+                            <p class="product-description">${product.shortDescription}</p>
+<div class="product-price">
+                                ₹${product.price}
+                                ${origPrice}
+                            </div>
+                            <button class="btn btn-primary" onclick="viewProduct(${product.id})">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Filter Products
+        function filterProducts(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderProducts(category);
+        }
+
+        // View Product Details
+        function viewProduct(productId) {
+            currentProduct = products.find(p => p.id === productId);
+            if (!currentProduct) return;
+
+            // Hide listing, show detail
+            document.getElementById('products-listing').style.display = 'none';
+            document.getElementById('product-detail').style.display = 'block';
+
+            // Populate detail
+            document.getElementById('main-product-image').src = currentProduct.image;
+            document.getElementById('product-category').textContent = currentProduct.category;
+            document.getElementById('product-name').textContent = currentProduct.name;
+document.getElementById('product-price').textContent = '₹' + currentProduct.price;
+            document.getElementById('product-description').textContent = currentProduct.fullDescription;
+            document.getElementById('breadcrumb-product').textContent = currentProduct.name;
+            document.getElementById('quantity').textContent = '1';
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Show Products List
+        function showProducts() {
+            document.getElementById('products-listing').style.display = 'block';
+            document.getElementById('product-detail').style.display = 'none';
+            window.scrollTo(0, 0);
+        }
+
+        // Change Quantity
+        function changeQuantity(change) {
+            const qtyEl = document.getElementById('quantity');
+            let qty = parseInt(qtyEl.textContent) + change;
+            if (qty < 1) qty = 1;
+            if (qty > 10) qty = 10;
+            qtyEl.textContent = qty;
+        }
+
+        // Add to Cart
+        function addToCart() {
+            const qty = parseInt(document.getElementById('quantity').textContent);
+            alert(`${currentProduct.name} (Qty: ${qty}) added to cart!\n\nTotal: $${(currentProduct.price * qty).toFixed(2)}`);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+        });
+    </script>
+</body>
+</html>

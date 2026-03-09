@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Art and craft store">
+    <title>Home - Simple Website</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+        <div class="container header-content">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-palette"></i></span>
+<span class="logo-text">Jenish<span class="logo-accent"> Art</span></span>
+            </a>
+
+<!-- Navigation -->
+        <nav class="nav-menu">
+    <a href="index.html" class="nav-link active">
+        <i class="fas fa-home"></i> Home
+    </a>
+
+    <a href="products.html" class="nav-link">
+        <i class="fas fa-box"></i> Products
+    </a>
+
+    <a href="about.html" class="nav-link">
+        <i class="fas fa-info-circle"></i> About
+    </a>
+
+    <a href="contact.html" class="nav-link">
+        <i class="fas fa-envelope"></i> Contact
+    </a>
+</nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+<!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="product.html" class="nav-link">Products</a>
+             <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="container hero-content">
+<span class="hero-badge">Welcome</span>
+            <h1>Art and <span class="text-gradient">Craft Store</span></h1>
+            <p>Unique handmade resin art designed to add beauty, creativity, and elegance to your space.</p>
+            <div class="hero-buttons">
+                <a href="about.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-info-circle"></i> View Products
+
+                </a>
+                <a href="contact.html" class="btn btn-outline btn-lg">
+                    <i class="fas fa-envelope"></i> Order on WhatsApp
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Happy Customer</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">80+</span>
+                    <span class="stat-label">Handmade Products</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4.9</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES SECTION ==================== -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-icon"><i class="fas fa-star"></i></span>
+                Our Products
+            </h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Resin Art Frames</h3>
+                    <p>Beautiful handmade resin frames for home decoration.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Custom Resin Keychains</h3>
+                    <p>Personalized resin keychains with unique designs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Resin Name Plates</h3>
+                    <p>Stylish resin name plates for homes and offices.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Resin Gift Items</h3>
+                    <p>Perfect handmade resin gifts for special occasions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT PREVIEW ==================== -->
+    <section class="about-page">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600" alt="Our Team">
+                </div>
+                <div class="about-text">
+                    <h1>Who We Are</h1>
+                    <p>Jenish Art is a handmade resin art brand created with creativity and passion. We design unique resin artworks, personalized gifts, and stylish home decor pieces. Every product is handcrafted with love to make your space more beautiful.</p>
+    
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Handmade Products</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Unique Designs</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                              <span>Happy Customers</span>
+                        </div>
+                    </div>
+                    <a href="about.html" class="btn btn-primary" style="margin-top: 20px;">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA SECTION ==================== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Create Something Beautiful?</h2>
+            <p>Explore our unique handmade resin art and find the perfect piece for your home or as a special gift.</p>
+            <a href="contact.html" class="btn btn-primary btn-lg">
+                <i class="fas fa-envelope"></i> Get in Touch
+            </a>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS SECTION (NEW) ==================== -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-icon"><i class="fas fa-quote-left"></i></span>
+                What Our Clients Say
+            </h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Amazing service and quality products! The team was very professional and delivered exactly what we needed. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Rajesh Kumar</h4>
+                            <span>Business Owner</span>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Excellent experience! The products exceeded my expectations. Great customer service and fast delivery."</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Priya Sharma</h4>
+                            <span>Designer</span>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Very satisfied with the quality and service. Will definitely order again! Thank you for the great experience."</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Client" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Amit Patel</h4>
+                            <span>Entrepreneur</span>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== GALLERY SECTION (NEW) ==================== -->
+    <section class="gallery">
+        <div class="container">
+<h2 class="section-title">
+                <span class="title-icon"><i class="fas fa-images"></i></span>
+                Our Products
+            </h2>
+<div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400" alt="Handmade Art">
+                    <div class="gallery-overlay"><span>Handmade Art</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400" alt="Custom Painting">
+                    <div class="gallery-overlay"><span>Custom Painting</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1544967082-d9d25d867d66?w=400" alt="Craft Work">
+                    <div class="gallery-overlay"><span>Craft Work</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=400" alt="Art Supplies">
+                    <div class="gallery-overlay"><span>Art Supplies</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ SECTION (NEW) ==================== -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-icon"><i class="fas fa-question-circle"></i></span>
+                Frequently Asked Questions
+            </h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What services do you offer?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer a wide range of art and craft services including custom paintings, design solutions, and handcrafted products. Our team specializes in creating unique pieces tailored to your needs.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How can I place an order?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can place an order by visiting our Products page and selecting your desired items, or by contacting us directly through the Contact page. We respond within 24 hours.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What is your delivery time?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Delivery time varies depending on the product and customization requirements. Typically, standard orders are delivered within 5-7 business days. Custom orders may take 2-3 weeks.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you offer refunds?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer a 30-day return policy for all our products. If you're not satisfied with your purchase, please contact us for a full refund or replacement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== NEWSLETTER SECTION (NEW) ==================== -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get the latest updates on new products, exclusive offers, and art tips directly to your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,138.7C672,128,768,128,864,149.3C960,171,1056,213,1152,218.7C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-palette"></i>
+<span>Jenish Art</span>
+                    </div>
+                    <p>Your trusted destination for quality services. We provide exceptional solutions for all your needs.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                       <ul>
+<li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+<li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+<li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+<li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+</ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City</li>
+<li><i class="fas fa-phone"></i> +91 75729 22581</li>
+                        <li><i class="fas fa-envelope"></i> efgh23667@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+<p>&copy; 2024 Jenish Art. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- WhatsApp Chat Button (NEW) -->
+    <a href="https://wa.me/917572922581" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top Button (NEW) -->
+    <button class="back-to-top" id="backToTop" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Back to Top Button Functionality
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.style.display = 'block';
+                } else {
+                    backToTopBtn.style.display = 'none';
+                }
+            });
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    </script>
+</body>
+</html>
+
