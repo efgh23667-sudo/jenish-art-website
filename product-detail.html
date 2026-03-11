@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Product Details - Browse quality products">
+    <title>Product Details - Jenish Art</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Product Detail Page Specific Styles */
+        .product-detail-page {
+            padding: 60px 0;
+            background: var(--dark-bg);
+            min-height: calc(100vh - 200px);
+        }
+
+        .product-detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary-light);
+        }
+
+        .breadcrumb i {
+            font-size: 10px;
+            color: var(--text-muted-light);
+        }
+
+        .breadcrumb span {
+            color: var(--text-secondary);
+        }
+
+        /* Product Detail Grid */
+        .product-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        /* Product Gallery/Image Section */
+        .product-gallery {
+            position: relative;
+        }
+
+        .main-image-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            background: var(--dark-bg-card);
+            border: 1px solid var(--border-dark);
+            height: 450px;
+        }
+
+        .main-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .main-image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Product Info Section */
+        .product-info-section {
+            padding: 10px 0;
+        }
+
+        .product-category-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: var(--dark-bg);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .product-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .product-price-display {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .product-price-display .currency {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .product-description {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Quantity Selector */
+        .quantity-section {
+            margin-bottom: 30px;
+        }
+
+        .quantity-label {
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .quantity-btn {
+            width: 45px;
+            height: 45px;
+            border: 2px solid var(--border-dark);
+            background: var(--dark-bg-card);
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+        }
+
+        .quantity-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            background: var(--dark-bg-tertiary);
+        }
+
+        .quantity-value {
+            font-size: 22px;
+            font-weight: 700;
+            min-width: 50px;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        /* Action Buttons */
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+        }
+
+        .btn-whatsapp-order {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #25D366, #20BD5A);
+            color: white;
+            border: none;
+            padding: 18px 36px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            flex: 1;
+        }
+
+        .btn-whatsapp-order:hover {
+            background: linear-gradient(135deg, #20BD5A, #1DA551);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp-order i {
+            font-size: 22px;
+        }
+
+        .btn-back-products {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: transparent;
+            border: 2px solid var(--border-dark);
+            color: var(--text-secondary);
+            padding: 18px 36px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .btn-back-products:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            background: rgba(0, 188, 212, 0.1);
+        }
+
+        /* Product Meta Info */
+        .product-meta-info {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-dark);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .meta-item i {
+            color: var(--primary-color);
+            width: 20px;
+            font-size: 16px;
+        }
+
+        /* No Product Found */
+        .no-product-found {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .no-product-found i {
+            font-size: 80px;
+            color: var(--text-muted-light);
+            margin-bottom: 20px;
+        }
+
+        .no-product-found h2 {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .no-product-found p {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .product-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .main-image-container {
+                height: 350px;
+            }
+
+            .product-title {
+                font-size: 28px;
+            }
+
+            .product-price-display {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product-detail-page {
+                padding: 40px 0;
+            }
+
+            .main-image-container {
+                height: 280px;
+            }
+
+            .product-title {
+                font-size: 24px;
+            }
+
+            .product-price-display {
+                font-size: 28px;
+            }
+
+            .product-price-display .currency {
+                font-size: 18px;
+            }
+
+            .product-actions {
+                flex-direction: column;
+            }
+
+            .btn-whatsapp-order,
+            .btn-back-products {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Animation for page load */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-detail-grid {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .product-gallery {
+            animation-delay: 0.1s;
+        }
+
+        .product-info-section {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+        <div class="container header-content">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-palette"></i></span>
+                <span class="logo-text">Jenish<span class="logo-accent"> Art</span></span>
+            </a>
+
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="product.html" class="nav-link active">
+                    <i class="fas fa-box"></i> Products
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i> About
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="product.html" class="nav-link active">Products</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- ==================== PRODUCT DETAIL PAGE ==================== -->
+    <section class="product-detail-page">
+        <div class="product-detail-container">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="product.html">Products</a>
+                <i class="fas fa-chevron-right"></i>
+                <span id="breadcrumb-product">Product Details</span>
+            </div>
+
+            <!-- Product Detail Content -->
+            <div class="product-detail-grid" id="product-detail-content">
+                <!-- Product Image -->
+                <div class="product-gallery">
+                    <div class="main-image-container">
+                        <img id="product-image" src="" alt="Product Image">
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info-section">
+                    <span class="product-category-badge" id="product-category"></span>
+                    <h1 class="product-title" id="product-name"></h1>
+                    <div class="product-price-display">
+                        <span class="currency">₹</span>
+                        <span id="product-price"></span>
+                    </div>
+                    <p class="product-description" id="product-description"></p>
+
+                    <!-- Quantity Selector -->
+                    <div class="quantity-section">
+                        <label class="quantity-label">Quantity:</label>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                            <span class="quantity-value" id="quantity">1</span>
+                            <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="product-actions">
+                        <a href="#" class="btn-whatsapp-order" id="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Order Now on WhatsApp
+                        </a>
+                        <a href="product.html" class="btn-back-products">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Products
+                        </a>
+                    </div>
+
+                    <!-- Product Meta -->
+                    <div class="product-meta-info">
+                        <div class="meta-item">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Free shipping on orders over ₹500</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Quality guaranteed</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-undo"></i>
+                            <span>7-day return policy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No Product Found Message -->
+            <div class="no-product-found" id="no-product" style="display: none;">
+                <i class="fas fa-box-open"></i>
+                <h2>Product Not Found</h2>
+                <p>Sorry, we couldn't find the product you're looking for.</p>
+                <a href="product.html" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Back to Products
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,138.7C672,128,768,128,864,149.3C960,171,1056,213,1152,218.7C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-palette"></i>
+                        <span>Jenish Art</span>
+                    </div>
+                    <p>Your trusted destination for quality services. We provide exceptional solutions for all your needs.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="product.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-envelope"></i> efgh23667@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jenish Art. ALL rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        // WhatsApp phone number
+        const whatsappNumber = '917572922581';
+
+        // Default product data
+        const defaultProducts = [
+            {
+                name: 'Resin Art Frame',
+                price: '1500',
+                image: 'images/product1.jpg',
+                description: 'Beautiful handmade resin art frame with vibrant colors and glossy finish. Perfect for home decoration or as a thoughtful gift. Each piece is uniquely crafted by skilled artisans.',
+                category: 'Resin Art'
+            },
+            {
+                name: 'Resin Keychain',
+                price: '300',
+                image: 'images/product2.jpg',
+                description: 'Custom resin keychain with personalized design. Lightweight, durable, and stylish. Perfect for everyday use or as a unique accessory.',
+                category: 'Resin Art'
+            },
+            {
+                name: 'Resin Name Plate',
+                price: '2500',
+                image: 'images/product3.jpg',
+                description: 'Personalized resin name plate for your home or office. Customized with your name or logo. Weather-resistant and long-lasting.',
+                category: 'Resin Art'
+            },
+            {
+                name: 'Resin Wall Decor',
+                price: '3500',
+                image: 'images/product4.jpg',
+                description: 'Modern resin wall decoration that adds elegance to any space. Handcrafted with attention to detail. Available in various designs and sizes.',
+                category: 'Resin Art'
+            }
+        ];
+
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Function to decode URL encoded strings
+        function decodeParam(param) {
+            if (param) {
+                return decodeURIComponent(param.replace(/\+/g, ' '));
+            }
+            return param;
+        }
+
+        // Function to update WhatsApp link
+        function updateWhatsAppLink(productName) {
+            const message = `Hello, I want to order this product: ${productName}`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            document.getElementById('whatsapp-btn').href = whatsappUrl;
+        }
+
+        // Function to load product from URL parameters
+        function loadProductFromUrl() {
+            const name = decodeParam(getUrlParameter('name'));
+            const price = decodeParam(getUrlParameter('price'));
+            const image = decodeParam(getUrlParameter('image'));
+            const description = decodeParam(getUrlParameter('description'));
+            const category = decodeParam(getUrlParameter('category'));
+
+            // Check if we have product name (required)
+            if (!name) {
+                // Show no product found message
+                document.getElementById('product-detail-content').style.display = 'none';
+                document.getElementById('no-product').style.display = 'block';
+                return;
+            }
+
+            // Set product image
+            const productImage = document.getElementById('product-image');
+            if (image) {
+                productImage.src = image;
+                productImage.alt = name;
+            } else {
+                // Use default image from products array
+                const defaultProduct = defaultProducts.find(p => p.name === name);
+                if (defaultProduct) {
+                    productImage.src = defaultProduct.image;
+                    productImage.alt = defaultProduct.name;
+                } else {
+                    productImage.src = 'images/product1.jpg';
+                    productImage.alt = name;
+                }
+            }
+
+            // Set product category
+            const productCategory = document.getElementById('product-category');
+            if (category) {
+                productCategory.textContent = category;
+            } else {
+                // Try to find category from default products
+                const defaultProduct = defaultProducts.find(p => p.name === name);
+                productCategory.textContent = defaultProduct ? defaultProduct.category : 'Resin Art';
+            }
+
+            // Set product name
+            document.getElementById('product-name').textContent = name;
+
+            // Set product price
+            const productPrice = document.getElementById('product-price');
+            if (price) {
+                productPrice.textContent = price;
+            } else {
+                // Try to find price from default products
+                const defaultProduct = defaultProducts.find(p => p.name === name);
+                productPrice.textContent = defaultProduct ? defaultProduct.price : '0';
+            }
+
+            // Set product description
+            const productDescription = document.getElementById('product-description');
+            if (description) {
+                productDescription.textContent = description;
+            } else {
+                // Try to find description from default products
+                const defaultProduct = defaultProducts.find(p => p.name === name);
+                productDescription.textContent = defaultProduct ? defaultProduct.description : 'No description available.';
+            }
+
+            // Set breadcrumb
+            document.getElementById('breadcrumb-product').textContent = name;
+
+            // Update WhatsApp link
+            updateWhatsAppLink(name);
+
+            // Update page title
+            document.title = `${name} - Jenish Art`;
+        }
+
+        // Quantity control
+        function changeQuantity(change) {
+            const qtyEl = document.getElementById('quantity');
+            let qty = parseInt(qtyEl.textContent) + change;
+            if (qty < 1) qty = 1;
+            if (qty > 10) qty = 10;
+            qtyEl.textContent = qty;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProductFromUrl();
+        });
+    </script>
+</body>
+</html>
+

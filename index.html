@@ -28,7 +28,7 @@
         <i class="fas fa-home"></i> Home
     </a>
 
-    <a href="products.html" class="nav-link">
+    <a href="product.html" class="nav-link">
         <i class="fas fa-box"></i> Products
     </a>
 
@@ -57,12 +57,18 @@
     </header>
 
     <!-- ==================== HERO SECTION ==================== -->
-    <section class="hero">
+    <section class="hero" id="hero-section">
         <div class="hero-bg-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
+            <!-- Floating Blur Circles -->
+            <div class="blur-circle-1"></div>
+            <div class="blur-circle-2"></div>
+            <div class="blur-circle-3"></div>
+            <div class="blur-circle-4"></div>
+            <div class="blur-circle-5"></div>
+            <div class="blur-circle-6"></div>
         </div>
+        <!-- Particle Animation Canvas -->
+        <canvas id="hero-particles"></canvas>
         <div class="container hero-content">
 <span class="hero-badge">Welcome</span>
             <h1>Art and <span class="text-gradient">Craft Store</span></h1>
@@ -78,7 +84,7 @@
             </div>
             <div class="hero-stats">
                 <div class="stat-item">
-                    <span class="stat-number">5+</span>
+                    <span class="stat-number">50+</span>
                     <span class="stat-label">Happy Customer</span>
                 </div>
                 <div class="stat-item">
@@ -356,12 +362,11 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                       <ul>
-<li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
-<li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
-<li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
-<li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
-</ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="product.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Info</h3>
@@ -373,13 +378,18 @@
                 </div>
             </div>
             <div class="footer-bottom">
-<p>&copy; 2024 Jenish Art. All rights reserved.</p>
+<p>&copy; 2026 Jenish Art. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
+
+    <!-- Instagram Button -->
+    <a href="https://instagram.com/jenish_art_" class="instagram-btn" target="_blank" title="Follow on Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
 
     <!-- WhatsApp Chat Button (NEW) -->
     <a href="https://wa.me/917572922581" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">
@@ -409,6 +419,4 @@
     </script>
 </body>
 </html>
-
-
 
