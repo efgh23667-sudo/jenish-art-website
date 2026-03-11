@@ -1,22 +1,21 @@
-# TODO - Product Detail Page Implementation
+# TODO.md - Particle Animation Fix
 
-## Plan Approved: Create Product Detail Page
+## Task: Fix particle animation in HERO section
 
-### Steps to Complete:
-- [x] 1. Create `product-detail.html` - New standalone page with URL parameter handling
-- [x] 2. Update `product.html` - Add URL parameter links to product cards
-- [x] 3. Add 4 new products with images and descriptions
+### Steps Completed:
+- [x] Analyze current implementation
+- [x] Identify z-index and visibility issues
+- [x] Update CSS z-index for canvas (0.5 → 1)
+- [x] Improve particle visibility in JavaScript
+- [x] Test the implementation
 
-### Products Added:
-1. Hanuman Ji Premium Resin Art Frame - ₹2,499
-2. Personalized Couple Resin Ring Holder Stand - ₹2,999
-3. Ganesh Ji Decorative Resin Diya Plate - ₹1,999
-4. Personalized Resin Wall Clock with Flowers - ₹2,799
-
-### Implementation Details:
-- Product info passed via URL parameters: name, price, image, description, category
-- WhatsApp button: `https://wa.me/917572922581?text=Hello%20I%20want%20to%20order%20this%20product%20[Product%20Name]`
-- Modern dark theme matching existing design
-- Responsive for mobile and desktop
-- Images mapped to products from existing files
+### Changes Made:
+1. **CSS**: Changed `#hero-particles` z-index from 0.5 to 1 (above blur shapes, below hero content)
+2. **JavaScript**: 
+   - Added brighter color palette (#00e5ff, #40e0ff, #00bfff, #87cefa, #1e90ff)
+   - Increased particle count from 60 to 80
+   - Increased connection distance from 120 to 150
+   - Increased mouse interaction distance from 150 to 200
+   - Increased base opacity from 0.6-1.0 to 0.7-1.0
+   - Enabled pulse effect on 50% of particles (was 40%)
 

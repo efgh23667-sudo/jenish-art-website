@@ -319,14 +319,14 @@ function initHeroParticles() {
     const heroSection = document.getElementById('hero-section');
     if (!heroSection) return;
     
-    // Blue/cyan color palette
-    const colors = ['#00e5ff', '#00bfff', '#1e90ff'];
+    // Blue/cyan color palette - brighter colors for better visibility
+    const colors = ['#00e5ff', '#40e0ff', '#00bfff', '#87cefa', '#1e90ff'];
     
-    // Optimized particle configuration for better performance
+    // Optimized particle configuration for better visibility
     let particles = [];
-    const particleCount = 60; // Reduced from 180 for better performance
-    const connectionDistance = 120; // Reduced from 180 for fewer lines
-    const mouseDistance = 150; // Reduced from 200 for lighter interaction
+    const particleCount = 80; // Increased for more visible particles
+    const connectionDistance = 150; // Increased for more connecting lines
+    const mouseDistance = 200; // Increased for better interaction
     
     // Mouse position
     let mouse = { x: null, y: null };
@@ -361,13 +361,13 @@ function initHeroParticles() {
             this.floatAmplitude = Math.random() * 0.5 + 0.2;
             
             // Pulse/shimmer effect - random particles will pulse
-            this.pulseEnabled = Math.random() > 0.6; // 40% of particles pulse
+            this.pulseEnabled = Math.random() > 0.5; // 50% of particles pulse
             this.pulseSpeed = Math.random() * 0.05 + 0.02;
             this.pulseOffset = Math.random() * Math.PI * 2;
-            this.baseOpacity = Math.random() * 0.4 + 0.6; // 0.6-1.0
+            this.baseOpacity = Math.random() * 0.3 + 0.7; // 0.7-1.0 - higher for better visibility
             
             this.color = colors[Math.floor(Math.random() * colors.length)];
-            this.density = (Math.random() * 40) + 15; // Increased density for stronger reaction
+            this.density = (Math.random() * 30) + 10; // Density for mouse interaction
         }
         
         draw() {
